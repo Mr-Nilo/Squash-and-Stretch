@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squash & Stretch · Animation Principles</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header id="header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-name">Animation Principles</div>
+      <div class="brand-sub">Squash and Stretch</div>
+    </div>
+    <div class="steps" id="step-dots"></div>
+    <div class="step-label" id="step-label">01 / 09</div>
+  </div>
+  <div id="progress-fill" style="width:11%"></div>
+</header>
+
+<!-- ─── SIDE NAV ─── -->
+<nav id="side-nav"></nav>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 0 · HERO -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="s0" data-sec="0">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tagline reveal">
+        <span class="num">01</span>
+        <span class="sep">/</span>
+        <span>The Foundational Principle</span>
+      </div>
+      <h1 class="hero-title reveal delay-1">
+        <span class="ht-line">The art of</span>
+        <span class="ht-line ht-em">squash &amp; stretch</span>
+      </h1>
+      <p class="hero-sub reveal delay-2">
+        Learn how subtle distortions of shape give animated objects a sense of weight, flexibility, and life — the principle that makes every great animation feel real.
+      </p>
+      <div class="hero-actions reveal delay-3">
+        <button class="btn btn-primary" onclick="goTo(1)">
+          Begin lesson <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn btn-secondary" onclick="goTo(2)">
+          Try the playground
+        </button>
+      </div>
+      <div class="pill-row reveal delay-4">
+        <span class="pill"><span class="dot"></span>20 minutes</span>
+        <span class="pill"><span class="dot"></span>Interactive</span>
+        <span class="pill pill-red"><span class="dot"></span>5 challenges</span>
+      </div>
+      <canvas id="hero-canvas" width="720" height="200" class="reveal delay-5"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1 · PRINCIPLE -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="s1" data-sec="1">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">The principle</div>
+      <h2 class="title">A simple distortion that <em>brings objects to life</em></h2>
+      <p class="lede">When an object hits something, it briefly squashes. When it moves quickly, it briefly stretches. This tiny exaggeration creates the illusion of weight, flexibility, and physicality — and forms the foundation of every other animation principle.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="flip-card reveal delay-1" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face">
+            <div class="flip-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M2 12h20M6 8v8M18 8v8"/></svg>
+            </div>
+            <div class="flip-meta">
+              <div class="flip-title">Squash</div>
+              <div class="flip-hint">Tap to reveal</div>
+            </div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M2 12h20M6 8v8M18 8v8"/></svg>
+            </div>
+            <p>When an object hits a surface, it compresses — becoming <strong>wider and shorter</strong>. This communicates impact, weight, and the deformation of soft materials.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal delay-2" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face">
+            <div class="flip-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 2v20M8 6h8M8 18h8"/></svg>
+            </div>
+            <div class="flip-meta">
+              <div class="flip-title">Stretch</div>
+              <div class="flip-hint">Tap to reveal</div>
+            </div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 2v20M8 6h8M8 18h8"/></svg>
+            </div>
+            <p>When an object moves quickly, it elongates — becoming <strong>taller and narrower</strong>. This communicates speed, momentum, and the direction of motion.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal delay-3" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face">
+            <div class="flip-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg>
+            </div>
+            <div class="flip-meta">
+              <div class="flip-title">Constant volume</div>
+              <div class="flip-hint">Tap to reveal</div>
+            </div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg>
+            </div>
+            <p>The golden rule: <strong>volume must always be preserved</strong>. If width grows, height shrinks by the same proportion — this is what makes deformation feel physical.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <button class="btn btn-primary" onclick="goTo(2)">See it in motion <span class="btn-arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2 · PLAYGROUND -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="s2" data-sec="2">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Interactive demo</div>
+      <h2 class="title">Shape the motion <em>yourself</em></h2>
+      <p class="lede">Adjust the sliders to feel how each variable changes the animation. Toggle the effect on and off to see the difference between a rigid ball and one that lives.</p>
+    </div>
+
+    <div class="playground reveal delay-1">
+      <div class="pg-header">
+        <div class="pg-title">
+          <span class="pg-title-icon"></span>
+          Bouncing ball playground
+        </div>
+        <span class="status-tag status-on" id="status-tag">
+          <span class="dot"></span>Squash & stretch on
+        </span>
+      </div>
+      <div class="pg-body">
+        <div class="pg-left">
+          <div class="pg-stage">
+            <canvas id="pg-canvas" width="460" height="280"></canvas>
+          </div>
+          <div class="pg-readout">
+            <div class="readout-item">
+              <div class="readout-label">Phase</div>
+              <div class="readout-value" id="r-phase">Idle</div>
+            </div>
+            <div class="readout-item">
+              <div class="readout-label">Velocity</div>
+              <div class="readout-value" id="r-velocity">0.0</div>
+            </div>
+            <div class="readout-item">
+              <div class="readout-label">scaleX</div>
+              <div class="readout-value" id="r-sx">1.00</div>
+            </div>
+            <div class="readout-item">
+              <div class="readout-label">scaleY</div>
+              <div class="readout-value" id="r-sy">1.00</div>
+            </div>
+          </div>
+        </div>
+        <div class="pg-controls">
+          <div class="ctrl">
+            <label>Squash strength <span id="sq-val">0.55</span></label>
+            <input type="range" id="squash-slider" min="0.25" max="0.95" step="0.05" value="0.55">
+            <div class="ctrl-hint">How flat the ball becomes at impact. Lower means a more dramatic squash.</div>
+          </div>
+          <div class="ctrl">
+            <label>Stretch strength <span id="st-val">1.70</span></label>
+            <input type="range" id="stretch-slider" min="1.0" max="2.5" step="0.05" value="1.70">
+            <div class="ctrl-hint">How tall the ball becomes during fast motion. Higher means more elongated.</div>
+          </div>
+          <div class="ctrl-divider"></div>
+          <div class="ctrl">
+            <label>Bounce height <span id="bh-val">180 px</span></label>
+            <input type="range" id="height-slider" min="80" max="220" step="10" value="180">
+            <div class="ctrl-hint">Peak distance the ball rises above the ground.</div>
+          </div>
+          <div class="ctrl">
+            <label>Animation speed <span id="sp-val">1.0×</span></label>
+            <input type="range" id="speed-slider" min="0.3" max="1.8" step="0.1" value="1.0">
+            <div class="ctrl-hint">Playback speed — slow it down to see the effect clearly.</div>
+          </div>
+          <div class="toggle-row">
+            <span class="toggle-label">Enable effect</span>
+            <label class="toggle-wrap">
+              <input type="checkbox" id="ss-toggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="reset-pg" style="align-self:flex-start">↺ Reset values</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <button class="btn btn-primary" onclick="goTo(3)">Learn the rules <span class="btn-arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3 · RULES -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="s3" data-sec="3">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Core principles</div>
+      <h2 class="title">Three rules that make it <em>feel right</em></h2>
+      <p class="lede">Following these three rules separates believable animation from animation that feels off. Break them and motion looks rubbery. Honor them and your work feels alive.</p>
+    </div>
+
+    <div class="rules-list">
+      <div class="rule-row reveal delay-1">
+        <div class="rule-num">01</div>
+        <div class="rule-text">
+          <h3>Preserve volume</h3>
+          <p>When width increases, height must decrease by the same proportion. The mathematical heart of the principle is <em>scaleX × scaleY = 1</em>. This rule alone is what makes deformation read as physical rather than as melting.</p>
+        </div>
+      </div>
+      <div class="rule-row reveal delay-2">
+        <div class="rule-num">02</div>
+        <div class="rule-text">
+          <h3>Extremes define personality</h3>
+          <p>The amount of squash and stretch you apply communicates what the object is made of. Subtle deformation feels heavy and realistic. Exaggerated deformation feels cartoony and light — a rubber ball stretches more than a bowling ball.</p>
+        </div>
+      </div>
+      <div class="rule-row reveal delay-3">
+        <div class="rule-num">03</div>
+        <div class="rule-text">
+          <h3>Time it precisely</h3>
+          <p>Squash happens only at the moment of impact. Stretch happens only during the fastest motion. The deformation lives for just one to three frames — any longer and the object reads as gum, not rubber.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <button class="btn btn-primary" onclick="goTo(4)">See real examples <span class="btn-arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4 · EXAMPLES -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="s4" data-sec="4">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Real-world examples</div>
+      <h2 class="title">Look closely — <em>it's everywhere</em></h2>
+      <p class="lede">From Disney animations to the buttons in modern apps, this principle quietly shapes how we experience motion. Watch each example and notice the deformation at work.</p>
+    </div>
+
+    <div class="ex-grid">
+      <div class="ex-card reveal delay-1">
+        <div class="ex-preview">
+          <canvas id="ex-ball" width="200" height="160"></canvas>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag">Classic</div>
+          <div class="ex-title">The bouncing ball</div>
+          <div class="ex-desc">Watch the ball flatten the moment it hits the ground — that's squash. Between bounces, as it picks up speed, it elongates into an egg shape — that's stretch. The textbook demonstration.</div>
+        </div>
+      </div>
+      <div class="ex-card reveal delay-2">
+        <div class="ex-preview">
+          <canvas id="ex-char" width="200" height="160"></canvas>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag">Character</div>
+          <div class="ex-title">The jumping figure</div>
+          <div class="ex-desc">Notice how the body squashes flat on landing and stretches tall mid-air. The same volume-preserving deformation works on any shape — not just a ball.</div>
+        </div>
+      </div>
+      <div class="ex-card reveal delay-3">
+        <div class="ex-preview">
+          <canvas id="ex-ui" width="200" height="160"></canvas>
+        </div>
+        <div class="ex-body">
+          <div class="ex-tag">Interface</div>
+          <div class="ex-title">The button press</div>
+          <div class="ex-desc">On press, the button gets wider and shorter — a quick squash that signals the click landed. Volume preservation makes the digital element feel physical.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <button class="btn btn-primary" onclick="goTo(5)">Now let's write it <span class="btn-arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5 · CODE -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="s5" data-sec="5">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">From idea to code</div>
+      <h2 class="title">Translating the principle <em>into syntax</em></h2>
+      <p class="lede">The same principle can be expressed with CSS keyframes, JavaScript physics, or a single transform. Each approach has its place — explore them all below.</p>
+    </div>
+
+    <div class="code-wrap reveal delay-1">
+      <div class="code-tabs">
+        <button class="code-tab active" onclick="switchTab(this,'css')">CSS Keyframes</button>
+        <button class="code-tab" onclick="switchTab(this,'js')">JS Canvas</button>
+        <button class="code-tab" onclick="switchTab(this,'transform')">CSS Transform</button>
+      </div>
+      <div class="code-bar">
+        <div class="code-file" id="code-file">bounce.css</div>
+        <button class="code-copy" onclick="copyCode()">Copy</button>
+      </div>
+      <div class="code-body">
+
+        <div class="code-panel active" id="panel-css">
+<pre><span class="cmt">/* The ball element */</span>
+<span class="sel">.ball</span> {
+  <span class="prop">width</span>: <span class="num">60px</span>;
+  <span class="prop">height</span>: <span class="num">60px</span>;
+  <span class="prop">border-radius</span>: <span class="num">50%</span>;
+  <span class="prop">background</span>: <span class="val">#155581</span>;
+  <span class="prop">animation</span>: <span class="val">bounce 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite</span>;
+  <span class="prop">transform-origin</span>: <span class="val">center bottom</span>;  <span class="cmt">/* pivot from bottom */</span>
+}
+
+<span class="sel">@keyframes</span> <span class="fn">bounce</span> {
+  <span class="num">0%</span>   { <span class="prop">transform</span>: <span class="val">translateY(0) scale(1, 1)</span>; }
+
+  <span class="cmt">/* Stretch — moving fast upward */</span>
+  <span class="num">15%</span>  { <span class="prop">transform</span>: <span class="val">translateY(-80px) scale(0.75, 1.35)</span>; }
+
+  <span class="cmt">/* Peak — natural shape at top */</span>
+  <span class="num">50%</span>  { <span class="prop">transform</span>: <span class="val">translateY(-160px) scale(1, 1)</span>; }
+
+  <span class="cmt">/* Stretch — falling fast */</span>
+  <span class="num">85%</span>  { <span class="prop">transform</span>: <span class="val">translateY(-80px) scale(0.75, 1.35)</span>; }
+
+  <span class="cmt">/* Squash — impact: wide and flat */</span>
+  <span class="num">95%</span>  { <span class="prop">transform</span>: <span class="val">translateY(0) scale(1.45, 0.65)</span>; }
+
+  <span class="cmt">/* Recovery — return to shape */</span>
+  <span class="num">100%</span> { <span class="prop">transform</span>: <span class="val">translateY(0) scale(1, 1)</span>; }
+}</pre>
+        </div>
+
+        <div class="code-panel" id="panel-js">
+<pre><span class="cmt">// Squash & stretch with real physics</span>
+<span class="kw">function</span> <span class="fn">getBallScale</span>(y, vy, groundY) {
+  <span class="kw">const</span> distFromGround = groundY - y;
+  <span class="kw">const</span> speed = Math.<span class="fn">abs</span>(vy);
+
+  <span class="kw">let</span> scaleX = <span class="num">1</span>, scaleY = <span class="num">1</span>;
+
+  <span class="cmt">// Squash: close to ground, moving down</span>
+  <span class="kw">if</span> (distFromGround < <span class="num">20</span> && vy > <span class="num">0</span>) {
+    <span class="kw">const</span> squashFactor = <span class="num">0.6</span>;
+    <span class="kw">const</span> t = <span class="num">1</span> - (distFromGround / <span class="num">20</span>);
+    scaleY = <span class="num">1</span> - ((<span class="num">1</span> - squashFactor) * t);
+    scaleX = <span class="num">1</span> / scaleY;  <span class="cmt">// preserve volume</span>
+  }
+
+  <span class="cmt">// Stretch: fast vertical motion</span>
+  <span class="kw">else if</span> (speed > <span class="num">3</span>) {
+    <span class="kw">const</span> stretchFactor = <span class="num">1.4</span>;
+    scaleY = <span class="num">1</span> + ((stretchFactor - <span class="num">1</span>) * (speed / <span class="num">12</span>));
+    scaleX = <span class="num">1</span> / scaleY;  <span class="cmt">// preserve volume</span>
+  }
+
+  <span class="kw">return</span> { scaleX, scaleY };
+}
+
+<span class="cmt">// In the draw loop:</span>
+ctx.<span class="fn">save</span>();
+ctx.<span class="fn">translate</span>(ball.x, ball.y);
+ctx.<span class="fn">scale</span>(scaleX, scaleY);
+ctx.<span class="fn">arc</span>(<span class="num">0</span>, <span class="num">0</span>, ball.radius, <span class="num">0</span>, Math.PI * <span class="num">2</span>);
+ctx.<span class="fn">fill</span>();
+ctx.<span class="fn">restore</span>();</pre>
+        </div>
+
+        <div class="code-panel" id="panel-transform">
+<pre><span class="cmt">/* The one-liner: button squash on click */</span>
+<span class="sel">.btn</span> {
+  <span class="prop">transition</span>: <span class="val">transform 0.1s ease</span>;
+  <span class="prop">transform-origin</span>: <span class="val">center</span>;
+}
+
+<span class="sel">.btn:active</span> {
+  <span class="prop">transform</span>: <span class="val">scale(1.12, 0.88)</span>;  <span class="cmt">/* wider, shorter */</span>
+}
+
+<span class="cmt">/* A character jump with all stages */</span>
+<span class="sel">@keyframes</span> <span class="fn">jump</span> {
+  <span class="num">0%</span>   { <span class="prop">transform</span>: <span class="val">scale(1.2, 0.8)</span>; }                    <span class="cmt">/* anticipation */</span>
+  <span class="num">20%</span>  { <span class="prop">transform</span>: <span class="val">scale(0.8, 1.3) translateY(-10px)</span>; }  <span class="cmt">/* launch */</span>
+  <span class="num">50%</span>  { <span class="prop">transform</span>: <span class="val">scale(0.85, 1.2) translateY(-60px)</span>; } <span class="cmt">/* peak */</span>
+  <span class="num">80%</span>  { <span class="prop">transform</span>: <span class="val">scale(0.8, 1.3) translateY(-10px)</span>; }  <span class="cmt">/* falling */</span>
+  <span class="num">90%</span>  { <span class="prop">transform</span>: <span class="val">scale(1.3, 0.75)</span>; }                   <span class="cmt">/* landing */</span>
+  <span class="num">100%</span> { <span class="prop">transform</span>: <span class="val">scale(1, 1)</span>; }                       <span class="cmt">/* settle */</span>
+}
+
+<span class="cmt">/* The volume preservation formula */</span>
+<span class="cmt">/* scaleX = 1 / scaleY  →  always */</span>
+<span class="cmt">/* If scaleY = 0.7  →  scaleX = 1.43 */</span>
+<span class="cmt">/* If scaleY = 1.4  →  scaleX = 0.71 */</span></pre>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <button class="btn btn-primary" onclick="goTo(6)">Practice what you've learned <span class="btn-arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 6 · CHALLENGE -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="s6" data-sec="6">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Practice</div>
+      <h2 class="title">Train your eye — <em>spot the difference</em></h2>
+      <p class="lede">Animation is as much about seeing as it is about making. Compare the two motions below and identify which one applies the principle correctly.</p>
+    </div>
+
+    <div class="challenge reveal delay-1">
+      <div class="challenge-head">
+        <div class="challenge-badge">Challenge 01</div>
+        <div class="challenge-title">Which animation applies squash & stretch correctly?</div>
+      </div>
+      <div class="ch-compare">
+        <div>
+          <div class="ch-label">Animation A</div>
+          <div class="ch-stage">
+            <canvas id="ch-a" width="180" height="180"></canvas>
+          </div>
+        </div>
+        <div>
+          <div class="ch-label">Animation B</div>
+          <div class="ch-stage">
+            <canvas id="ch-b" width="180" height="180"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="ch-task">
+        One of the animations applies squash & stretch correctly. The other is <strong>rigid</strong> — the ball keeps its shape throughout the entire motion. Look closely, then select your answer.
+      </div>
+      <div class="option-grid" id="ch-opts">
+        <button class="option" onclick="checkChallenge(this,'A')">Animation A — applies the principle</button>
+        <button class="option" onclick="checkChallenge(this,'B')">Animation B — applies the principle</button>
+        <button class="option" onclick="checkChallenge(this,'both')">Both animations apply it</button>
+        <button class="option" onclick="checkChallenge(this,'neither')">Neither animation looks right</button>
+      </div>
+      <div class="feedback" id="ch-feedback"></div>
+    </div>
+
+    <div class="section-cta">
+      <button class="btn btn-primary" onclick="goTo(7)">Test your knowledge <span class="btn-arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 7 · QUIZ -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section quiz-section" id="s7" data-sec="7">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Knowledge check</div>
+      <h2 class="title">Five questions to <em>seal your understanding</em></h2>
+      <p class="lede">Each question has one correct answer. You'll see why each option is right or wrong as you go — perfect for review.</p>
+    </div>
+
+    <div id="quiz-container" class="reveal delay-1">
+      <div class="quiz-progress">
+        <div class="quiz-bar"><div class="quiz-fill" id="quiz-fill" style="width:0%"></div></div>
+        <span class="quiz-count" id="quiz-count">01 / 05</span>
+      </div>
+      <div id="quiz-q-area"></div>
+      <div id="quiz-result" class="hidden">
+        <div class="score-ring">
+          <svg width="140" height="140" viewBox="0 0 140 140">
+            <circle class="bg" cx="70" cy="70" r="62"></circle>
+            <circle class="fg" cx="70" cy="70" r="62" id="score-circle" stroke-dasharray="389.6" stroke-dashoffset="389.6"></circle>
+          </svg>
+          <div class="score-text">
+            <div class="score-num" id="score-num">0</div>
+            <div class="score-of">of 5</div>
+          </div>
+        </div>
+        <h3 class="score-headline" id="score-headline"></h3>
+        <p class="score-msg" id="score-msg"></p>
+        <div class="score-actions">
+          <button class="btn btn-secondary btn-sm" onclick="resetQuiz()">↺ Retry</button>
+          <button class="btn btn-primary" onclick="goTo(8)">Complete lesson <span class="btn-arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 8 · CERTIFICATE -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="s8" data-sec="8">
+  <div class="container">
+    <div class="certificate reveal">
+      <div class="cert-mark">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#155581" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"/>
+        </svg>
+      </div>
+      <div class="cert-eyebrow">Lesson complete</div>
+      <div class="cert-title">You have mastered</div>
+      <div class="cert-principle"><em>Squash & Stretch</em></div>
+      <div class="cert-divider"></div>
+      <p class="cert-body">
+        You can now identify, explain, and implement squash and stretch — the foundational animation principle. You're ready to apply it to your own work and to learn the eleven principles that build on it.
+      </p>
+      <div class="cert-badges">
+        <div class="cert-badge"><span class="dot"></span>Theory</div>
+        <div class="cert-badge"><span class="dot"></span>Playground</div>
+        <div class="cert-badge"><span class="dot"></span>Code</div>
+        <div class="cert-badge"><span class="dot"></span>Challenge</div>
+        <div class="cert-badge"><span class="dot"></span>Quiz</div>
+      </div>
+      <div class="cert-actions">
+        <button class="btn btn-red" onclick="launchConfetti()">Celebrate <span class="btn-arrow">✨</span></button>
+        <button class="btn btn-secondary" onclick="goTo(0)">Start over</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
